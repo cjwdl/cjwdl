@@ -1,0 +1,79 @@
+#include <stdint.h>
+#include <windows.h>
+#include <stdlib.h>
+
+//map
+//0: poen space; 1: wall; 3: destination box; 4: box;
+//6: person; 7: suitcases and destination overlap; 9: people at the destination;
+int g_map[10][12] = 
+{
+	 {1,1,1,1,1,0,0,0,0,0,0,0},
+	 {1,0,0,0,1,0,1,1,1,0,0,0},
+	 {1,0,4,0,1,0,1,1,1,1,1,1},
+	 {1,0,4,6,1,0,1,0,0,0,3,1},
+	 {1,1,1,4,1,1,1,0,0,0,3,1},
+	 {0,1,0,0,0,0,0,0,0,0,3,1},
+	 {0,1,0,0,0,1,0,0,0,0,0,1},
+	 {0,1,0,0,0,1,0,0,0,0,0,1},
+	 {0,1,1,1,1,1,0,0,0,0,0,1},
+	 {0,0,0,0,0,0,1,1,1,1,1,1},    
+	 
+};
+	
+	
+
+
+int main()
+{
+	//set title
+	SetConsoleTitle("崩絚");
+    //set window
+    system("mode con cols=26 lines=12");
+    
+    while(1)
+	{
+		//print map
+		DrapMap();
+		getchar();
+	}
+	return 0;	
+}
+//print map
+void DrapMap()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 12; j++)
+		{
+			switch (g_map[i][j]) 
+			{
+				case 0:
+					printf("  ");
+					break;
+				case 1:
+					printf("#");
+					break;
+			    case 3:
+					printf("*");
+					break;
+				case 4:	
+					printf("@");
+					break;	
+				case 6:
+					printf("$");
+					break;	
+				case 7:
+					printf("&");
+					break;	
+				case 9:
+					printf("^");
+					break;		
+		
+			}
+		}
+		printf("\n");
+	}
+	
+	
+	
+}
