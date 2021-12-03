@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <windows.h>
+
+#define MAX 6
+int main()
+{
+	int i;
+	int count = 5;
+    char emperorName[50];
+    int choice;
+    char tempName[20];
+    
+    char names[MAX][20] = {"Sable cicada", "Yang Yuhuan", "do not know fire dance", "Xishi", "Guo Degang"};
+    char levelNames[][10] = {"Dignitaries", "guest", "consorts", "imperial consorts", " queen"};
+    int levels[MAX] = {1, 2, 0, 0, 4, -1};
+    int loves[MAX] = {100, 100, 100, 100, 100, -1};
+    
+    printf("\n*******************************************\n");
+    printf("Test code: view the status of the current guest");
+    printf("%-12slevel\tfavorability\n", "name");
+    for (i = 0; i < count; i++)
+    {
+	    printf("%-12s\t%s\t%d\n", names[i], levelNames[levels[i]], loves[i]);		
+	}
+    printf("*******************************************\n");
+    
+    
+
+    printf("Please enter the name of the current enthroned emperor: ");
+    scanf("%s", emperorName);
+    printf("The emperor <<%s>> came, something played, nothing back! \n", emperorName);
+    printf("1. Emperor orders concubine selection: \t\t (added function) \n");
+    printf("2. Lucky pet: \t\t (modify status function) \n");
+    printf("3. Enter ling Gong!:  \t\t (Delete function) \n");
+    printf("4. Call your wife alone to do something pure in the woods \n");
+    printf("Your Majesty, please choose: ");
+    scanf("%d", &choice);
+    switch (choice) 
+	{
+		case 1:
+		//	printf("1. Emperor orders concubine selection: \t\t (added function) \n");
+			if (count < MAX)
+			{
+			    printf("Please enter the maiden's name: ");
+				scanf("%s", names[count]);	
+				levels[count] = 0;
+				loves[count] = 100;
+				count++;
+			}
+			else
+			{
+				printf("Your Majesty, watch out for the dragon. Harem as well as overcrowding! \nadd failure! \n");
+			}
+			break;
+		case 2:
+			printf("Your Majesty, type in the name of the lady who's going to flip today: ");
+			scanf("");
+			break;
+		case 3:
+			printf("3. Enter ling Gong!:  \t\t (Delete function) \n");
+			break;	
+		case 4:
+			printf("4. Call your wife alone to do something pure in the woods \n");
+			break;	
+		default:
+			printf("I beg your Majesty to confirm! \n");
+
+	}
+	printf("\n*******************************************\n");
+    printf("Test code: view the status of the current guest");
+	printf("%-12slevel\tfavorability\n", "name");
+	for (i = 0; i < count; i++)
+	{
+		    printf("%-12s\t%s\t%d\n", names[i], levelNames[levels[i]], loves[i]);		
+	}
+    printf("*******************************************\n");
+    
+    
+    return 0;
+}
