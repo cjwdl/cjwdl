@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+class Cube
+{
+	
+	
+public:
+    void setL(int l)	
+    {
+	    m_L = l;			
+	}
+	int getL()
+	{
+		return m_L;
+	}
+	
+	void setW(int w)	
+	{
+		    m_W = w;			
+	}
+	int getW()
+	{
+			return m_W;
+	}
+	
+	void setH(int h)	
+	{
+			    m_H = h;			
+	}
+	int getH()
+	{
+				return m_H;
+	}
+		
+	void getCubeS()
+	{
+		int s = 2 * m_L * m_W + 2 * m_W * m_H + 2 * m_L * m_H;
+		cout << "ミよ蔨S " << s << endl;	
+	}
+	
+	void getCubeV()
+	{
+		int v = m_L * m_W * m_H;
+		cout << "ミよ蔨V: " << v << endl;				
+	}
+
+    bool compareCubeByClass()
+    {
+		bool ret = m_L == cube.get() && m_W == Cube.getW() && m_H == Cube.getH();
+		return ret;
+	}
+			
+private:
+	int m_L;
+	int m_W;
+	int m_H;
+		
+};
